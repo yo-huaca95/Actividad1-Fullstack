@@ -5,7 +5,7 @@ import {Table } from "react-bootstrap";
 
 export const ProductosDisponibles =()=>{
  return (
- <Table striped bordered hover>
+<Table striped bordered hover>
  <thead>
    <tr>
      <th>#</th>
