@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.TituloComponentes{
+  background-color:#1989ff !important ;
+}
+
+.spanLetraTextoTitulo{
+    color: #fff;
+    font-family: Poppins,sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 43px;
+}
+.spanletraTextoNormal{
+  color: #434351;
+  font: 400 14px/20px Poppins,sans-serif;
+
+}
+
