@@ -12,7 +12,7 @@ export const MenuIzquierdo = () => {
     return (
         <Tab.Container id="list-group-tabs-example" >
         <Row className='fila'>
-          <Col sm={4}>
+          <Col sm={4} className='ColumnMenu'>
           <ListGroup>
             <ListGroup.Item action variant='light'>
             <Link to="/RegistroProductos">Registro de productos</Link>

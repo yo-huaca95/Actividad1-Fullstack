@@ -1,12 +1,17 @@
 import React from "react";
-import {Container, Form, Row} from "react-bootstrap";
+import {Card, Col, Container, Form, Row} from "react-bootstrap";
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import './RegistroProductos.css';
 
 export  const RegistroProductos= () => {
     return (
       <Container>
       <Row>
+      <Col>
+      <Card>
+      <Card.Header className="TituloComponentes" ><span className="spanLetraTextoTitulo">Registrar Producto</span></Card.Header>
+        <Card.Body>
       <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Producto</Form.Label>
@@ -27,8 +32,14 @@ export  const RegistroProductos= () => {
         Submit
       </Button>
     </Form>
-    </Row>
-    <Row>
+    </Card.Body>
+    </Card>
+
+    </Col>
+  <Col>
+  <Card  className="CardsTablePrRegistrar">
+      <Card.Header className="TituloComponentes"><span className="spanLetraTextoTitulo">Productos Registrados</span></Card.Header>
+        <Card.Body>
     <Table striped bordered hover size="sm">
       <thead>
         <tr>
@@ -58,6 +69,9 @@ export  const RegistroProductos= () => {
         </tr>
       </tbody>
     </Table>
+    </Card.Body>
+    </Card>
+    </Col>
     </Row>
     </Container>
     );

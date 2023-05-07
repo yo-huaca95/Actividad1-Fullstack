@@ -1,4 +1,5 @@
 import React from "react";
+import './MarcoOpciones.css';
 
 import {RegistroProductos} from '../OpcionesMenu/RegistroProductos/RegistroProductos';
 import {Compras} from '../OpcionesMenu/Compras/Compras';
@@ -29,8 +30,8 @@ export const MarcoOpciones= (props)=>{
 
     return (
         <div className="card text-center">
-        <div className="card-header">
-            {headerOpciones.filter((headerOpcion)=>headerOpcion.Opcion===props.opcion)[0].Descripcion}
+        <div className="card-header TituloComponentes">
+           <span className="spanLetraTextoTitulo"> {headerOpciones.filter((headerOpcion)=>headerOpcion.Opcion===props.opcion)[0].Descripcion}</span>
         </div>
         <div className="card-body">
     
