@@ -2,26 +2,27 @@ import './App.css';
 import { MenuNavegacionSuperior } from './Components/NavbarSuperior/Navbar';
 import {MenuIzquierdo} from './Components/MenuNavegacionIzquierdo/MenuIzquierdo'
 import React from 'react';
-import { Container } from 'react-bootstrap';
-import { BrowserRouter as Router} from "react-router-dom";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 
 function App() {
   return (
     <div className="App">
-      <Container className='container'>
-      <div class="card text-center">
-      <div class="card-header">
+      <Row className='Margen-App' >
+        <Col md={{ span: 8, offset: 2 }} >
+      <div className="card text-center">
+      <div >
       <MenuNavegacionSuperior/>
      </div>
-     <div class="card-body">
-      <Router>
+     <div className="card-body">
        <MenuIzquierdo></MenuIzquierdo>
-      </Router>
     </div>
-    <div class="card-footer text-muted">
+    <div className="card-footer text-muted">
     </div>
        </div>
-      </Container>
+      </Col>
+      </Row>
     </div>
   );
 }

@@ -10,3 +10,8 @@ a{
 .ColumnMenu{
     border-right: 5px;
 }
+
+.list-group-item-action{
+    text-align: left !important;
+}
+

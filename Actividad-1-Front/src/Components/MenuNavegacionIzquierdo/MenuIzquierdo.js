@@ -12,23 +12,23 @@ export const MenuIzquierdo = () => {
     return (
         <Tab.Container id="list-group-tabs-example" >
         <Row className='fila'>
-          <Col sm={4} className='ColumnMenu'>
+          <Col md={{ span: 3 }} className='ColumnMenu'>
           <ListGroup>
             <ListGroup.Item action variant='light'>
-            <Link to="/RegistroProductos">Registro de productos</Link>
+            <Link to="/RegistroProductos"><span className="spanletraTextoNormal" >Registro de productos</span></Link>
             </ListGroup.Item>
             <ListGroup.Item action variant='light'>
-            <Link to="/Compras">Compras</Link>
+            <Link to="/Compras"><span className="spanletraTextoNormal" >Compras </span></Link>
             </ListGroup.Item>
             <ListGroup.Item action variant='light'>
-            <Link to="/Ventas">Ventas</Link>
+            <Link to="/Ventas"><span className="spanletraTextoNormal" >Ventas</span></Link>
             </ListGroup.Item>
             <ListGroup.Item action variant='light'>
-            <Link to="/Productos-Disponibles">Productos disponibles</Link>
+            <Link to="/Productos-Disponibles"><span className="spanletraTextoNormal" >Productos disponibles </span></Link>
             </ListGroup.Item>
           </ListGroup>
           </Col>
-          <Col sm={8}>
+          <Col md={{ span: 9  }}>
             <Tab.Content>
             <AppRouterMenuIzquierdo/>
             </Tab.Content>

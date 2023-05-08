@@ -19,7 +19,7 @@ code {
 .spanLetraTextoTitulo{
     color: #fff;
     font-family: Poppins,sans-serif;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     line-height: 43px;
 }
@@ -29,3 +29,10 @@ code {
 
 }
 
+.container-fluid{
+  height: 43px;
+}
+
+.NavbarMargenes,.card-header {
+  height: 43px;
+}
