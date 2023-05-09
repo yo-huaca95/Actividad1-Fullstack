@@ -1,58 +1,11 @@
-import React, { useEffect, useState, useMemo } from "react";
-import {useTable} from "react-table"
+import React from "react";
 import {Card, Col, Container, Form, Row} from "react-bootstrap";
-import Table from 'react-bootstrap/Table';
+
 import Button from 'react-bootstrap/Button';
 import './RegistroProductos.css';
-import { COLUMNS } from "./Tabla/columns";
-import {PRODUCTOS} from "./Tabla/productos"
-//import { COLUMNS } from "./Tabla/columns";
-
-
-// function useProductos (){
-//   const [productos, getProductos]=useState([])
-//   useEffect (
-//               () => {
-//               fetch('Json/json.js')
-//               .then(response=>response.json())
-//               .then (datos=>{
-//                 getProductos(datos)
-//               })
-
-//             },[])
-  
-
-//   return productos
-// }
-
-
-
-
-//console.log(useProductos ());
+import {Tabla} from './Tabla/Tabla'
 
 export  const RegistroProductos= () => {
-
-  // const listaProductos= useProductos()
-  // console.log(listaProductos);
-  const data= useMemo(()=> PRODUCTOS,[])
-  const columns = useMemo (()=>COLUMNS,[])
-  
-  // console.log(columns);
-
-  const tableInstance= useTable({
-    columns,
-    data
-  })
-
-
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow
-
-  }=tableInstance
 
     return (
       <Container className="conta">
@@ -87,41 +40,9 @@ export  const RegistroProductos= () => {
   <Card  className="CardsTablePrRegistrar">
       <Card.Header className="TituloComponentes"><span className="spanLetraTextoTitulo">Productos Registrados</span></Card.Header>
         <Card.Body>
-
-    <Table striped bordered hover size="sm" {...getTableProps}>
-      <thead>
-        {headerGroups.map((headerGroup)=>(
-        <tr {...headerGroup.getHeaderGroupProps()}>
-          {
-            headerGroup.headers.map(
-              (column)=>(
-                <th {...column.getHeaderProps()} >{column.render('Header')}</th>
-              ))}
-          <th>N°</th>
-          <th>Producto</th>
-          <th>Precio</th>
-          <th>Lote</th>
-        </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()} >
-        { rows.map(row=>{
-          prepareRow (row)
-          return (
-        <tr {...row.getRowProps()} >
-            {
-              row.cells.map(
-                (cell)=>{
-                  return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                }
-              )
-            }
-        </tr>
-           )
-          })}
-      </tbody>
-    </Table>
-  
+      <Container >
+       <Tabla/>
+     </Container>
     </Card.Body>
     </Card>
     </Col>

@@ -28,6 +28,18 @@ export const PRODUCTOS=[
         Producto:'Jabon Protex',
         Precio:5500,
         Lote:'001'
+    },
+    {
+        id:6,
+        Producto:'Jabon Protex',
+        Precio:5500,
+        Lote:'001'
+    },
+    {
+        id:7,
+        Producto:'Jabon Protex',
+        Precio:5500,
+        Lote:'001'
     }
 
 ]
