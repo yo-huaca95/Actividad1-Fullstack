@@ -1,6 +1,6 @@
 import React from "react";
 
-import {TituloMarcoOpciones} from '../OpcionesMenu/MarcoOpciones/TituloMarcoOpciones';
+import {TituloMarcoOpciones} from './marcoOpciones/TituloMarcoOpciones';
 import './MarcoOpciones.css';
 import {AppRouterMenuIzquierdo} from '../Rutas/AppRouterMenuIzquierdo';
 

@@ -1,5 +1,5 @@
 .CardsTablePrRegistrar{
-    height: 100% !important;
+    overflow-x: auto;
 }
 
 Form Label {
