@@ -15,7 +15,7 @@ export const MenuIzquierdo = () => {
     return (
         <Tab.Container id="list-group-tabs-example" >
         <Row className='fila'>
-          <Col md={{ span: 3 }} className='ColumnMenu'>
+          <Col md={{ span: 2 }} className='ColumnMenu'>
           <ListGroup>
             <ListGroup.Item action variant='light'>
             <Link to="/RegistroProductos" onClick={()=> setOpcion(opcionMenu=1)} ><span className="spanletraTextoNormal" >Registro de productos</span></Link>
@@ -31,7 +31,7 @@ export const MenuIzquierdo = () => {
             </ListGroup.Item>
           </ListGroup>
           </Col>
-          <Col md={{ span: 9  }}>
+          <Col md={{ span: 10  }}>
             <Tab.Content>
             <MarcoOpciones opcion={opcionMenu}/>
             </Tab.Content>

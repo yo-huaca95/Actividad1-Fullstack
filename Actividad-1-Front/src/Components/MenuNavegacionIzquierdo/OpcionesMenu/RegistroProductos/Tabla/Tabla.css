@@ -11,3 +11,17 @@
     --bs-btn-border-radius: 0.25rem !important;
     font-size: 0.6rem !important;
 }
+
+.caja{
+    height: 200px;
+    width: auto;
+    overflow: auto;
+}
+
+.tituloTabla{
+    border: 1px solid #e2e2e8;
+}
+
+tr,td{
+    border-style: none !important;
+}

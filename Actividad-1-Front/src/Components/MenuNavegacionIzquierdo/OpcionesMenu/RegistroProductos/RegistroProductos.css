@@ -5,3 +5,11 @@
 Form Label {
     text-align: left ;
 }
+
+.ajusteDimencion{
+    height: 100% !important;
+}
+
+.panletraTextoNormal, .btnspan{
+    color: #fff;
+}

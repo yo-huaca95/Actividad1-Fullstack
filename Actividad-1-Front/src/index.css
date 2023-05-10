@@ -14,6 +14,8 @@ code {
 
 .TituloComponentes{
   background-color:#1989ff !important ;
+  display: grid;
+  align-content: center;
 }
 
 .spanLetraTextoTitulo{

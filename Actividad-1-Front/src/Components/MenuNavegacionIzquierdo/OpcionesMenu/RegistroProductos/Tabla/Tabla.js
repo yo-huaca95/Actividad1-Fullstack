@@ -1,15 +1,16 @@
-import React, {useEffect, useMemo} from "react";
+import React, { useEffect, useMemo} from "react";
+import * as Icon from 'react-bootstrap-icons';
 import {useTable, usePagination} from "react-table"
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import './Tabla.css';
+import { Container } from "react-bootstrap";
 
 import { COLUMNS } from "./columns";
 import {PRODUCTOS} from "./productos";
-//import { Container } from "react-bootstrap";
+
 
 export const Tabla= ()=>{
-    
     const data= useMemo(()=> PRODUCTOS,[])
     const columns = useMemo (()=>COLUMNS,[])
   
@@ -17,8 +18,6 @@ export const Tabla= ()=>{
       columns,
       data
     },usePagination)
-  
-  
 
 
     const {
@@ -38,43 +37,59 @@ export const Tabla= ()=>{
       prepareRow
   
     }=tableInstance
+
     
-    const {pageIndex}=state
+   const {pageIndex}=state
     
-    useEffect(()=>setPageSize(4),[]);
-    
+    useEffect(()=>{
+      setPageSize(5);
+    },[setPageSize]);
 
     return (
         <>
-        <Table striped bordered hover {...getTableProps}>
-        <thead>
+        <Container className="caja" >
+        <Table striped bordered hover {...getTableProps} >
+        <thead className="tituloTabla" >
           {headerGroups.map((headerGroup)=>(
-          <tr {...headerGroup.getHeaderGroupProps()}>
+          <tr  {...headerGroup.getHeaderGroupProps()}>
             {
               headerGroup.headers.map(
                 (column)=>(
-                  <th {...column.getHeaderProps()} >{column.render('Header')}</th>
-                ))}
+                  <th className="spanletraTextoNormal" {...column.getHeaderProps()} >{column.render('Header')}</th>
+                ))               
+            }
+            <th className="spanletraTextoNormal">Editar</th>
+            <th className="spanletraTextoNormal">Eliminar</th>
           </tr>
           ))}
         </thead>
+
         <tbody  {...getTableBodyProps()} >
-          { page.map(row=>{
+          { 
+          
+          page.map(row=>{
             prepareRow (row)
-            return (
+            return (         
           <tr {...row.getRowProps()} >
               {
                 row.cells.map(
                   (cell)=>{
-                    return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                    return <td className="spanletraTextoNormal" {...cell.getCellProps()}>{cell.render('Cell')}</td>
                   }
                 )
               }
+            <td> <Button size="sm"> <Icon.PencilFill  color="white" size={15} /></Button></td>
+            <td> <Button variant="danger" size="sm"><Icon.DashLg  color="white" size={15} ></Icon.DashLg></Button></td>
           </tr>
              )
-            })}
+            })
+            
+            }
+            
         </tbody>
+
         </Table>
+        </Container>
         <div>
         <span className="botonPaginacion">Pagina{''}</span>
           <span className="botonPaginacion" ><strong> {pageIndex +1} of {pageOptions.length} </strong>{''}</span>
@@ -93,7 +108,7 @@ export const Tabla= ()=>{
          <Button onClick={()=>gotoPage(0)} disabled={!canPreviousPage} className="botonPaginacion">{'<<'}</Button> 
          <Button onClick={()=>previousPage()} disabled={!canPreviousPage} className="botonPaginacion"><span > Anterior</span></Button>
          <Button onClick={()=>nextPage()} disabled={!canNextPage} className="botonPaginacion"> <span  >Siguiente</span></Button>
-        <Button onClick={()=>gotoPage(pageCount - 1)} disabled={!canNextPage} className="botonPaginacion" >{'>>'}</Button> 
+         <Button onClick={()=>gotoPage(pageCount - 1)} disabled={!canNextPage} className="botonPaginacion" >{'>>'}</Button> 
         </div>
         </>
     );
