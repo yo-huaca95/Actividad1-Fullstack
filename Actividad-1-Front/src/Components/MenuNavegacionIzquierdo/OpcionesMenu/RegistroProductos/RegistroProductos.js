@@ -1,5 +1,6 @@
 import React from "react";
 import {Card, Col, Container, Form, Row} from "react-bootstrap";
+import * as Icon from 'react-bootstrap-icons';
 
 import Button from 'react-bootstrap/Button';
 import './RegistroProductos.css';
