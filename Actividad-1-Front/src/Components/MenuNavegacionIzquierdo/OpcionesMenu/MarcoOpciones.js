@@ -1,5 +1,5 @@
 import React from "react";
-import * as Icon from 'react-bootstrap-icons';
+//import * as Icon from 'react-bootstrap-icons';
 
 import {TituloMarcoOpciones} from './marcoOpciones/TituloMarcoOpciones';
 import './MarcoOpciones.css';

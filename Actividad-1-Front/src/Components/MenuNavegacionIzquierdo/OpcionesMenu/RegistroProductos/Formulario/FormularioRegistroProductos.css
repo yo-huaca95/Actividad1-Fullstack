@@ -1,0 +1,7 @@
+.panletraTextoNormal, .btnspan{
+    color: #fff;
+}
+
+input::placeholder{
+    font: 400 14px/20px Poppins,sans-serif !important;
+}

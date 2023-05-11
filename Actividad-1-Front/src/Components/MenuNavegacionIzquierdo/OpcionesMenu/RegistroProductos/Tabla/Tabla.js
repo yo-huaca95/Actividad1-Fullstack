@@ -6,13 +6,14 @@ import Button from 'react-bootstrap/Button';
 import './Tabla.css';
 import { Container } from "react-bootstrap";
 
-import { COLUMNS } from "./columns";
-import {PRODUCTOS} from "./productos";
+//import { COLUMNS } from "./columns";
+//import {PRODUCTOS} from "./productos";
 
 
-export const Tabla= ()=>{
-    const data= useMemo(()=> PRODUCTOS,[])
-    const columns = useMemo (()=>COLUMNS,[])
+export const Tabla= (props)=>{
+
+    const data= useMemo(()=> props.productos,[props.productos])
+    const columns = useMemo (()=>props.columnasTabla,[props.columnasTabla])
   
     const tableInstance= useTable({
       columns,
@@ -90,7 +91,7 @@ export const Tabla= ()=>{
 
         </Table>
         </Container>
-        <div>
+        <div className="footertabla">
         <span className="botonPaginacion">Pagina{''}</span>
           <span className="botonPaginacion" ><strong> {pageIndex +1} of {pageOptions.length} </strong>{''}</span>
           <span className="botonPaginacion">

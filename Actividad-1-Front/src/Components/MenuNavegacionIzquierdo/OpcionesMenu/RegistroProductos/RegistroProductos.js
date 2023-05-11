@@ -1,16 +1,26 @@
-import React from "react";
-import {Card, Col, Container, Form, Row} from "react-bootstrap";
-import * as Icon from 'react-bootstrap-icons';
+import React, { useState } from "react";
+import {Card, Col, Container,Row} from "react-bootstrap";
+//import * as Icon from 'react-bootstrap-icons';
 
-import Button from 'react-bootstrap/Button';
 import './RegistroProductos.css';
 import {Tabla} from './Tabla/Tabla'
+import {PRODUCTOS} from "./Tabla/productos";
+import { COLUMNS as columnasTabla}  from "./Tabla/columns";
+import { FormularioRegistroProductos } from "./Formulario/FormularioRegistroProductos";
 
-
-
-
+localStorage.setItem('productos',JSON.stringify(PRODUCTOS));
 
 export  const RegistroProductos= () => {
+
+    const [productos,setProducto]  =useState(JSON.parse(localStorage.getItem("productos")));
+
+    const agregarProducto= (producto)=>{
+      setProducto([
+        ...productos,
+        producto
+      ])
+    }
+    localStorage.setItem('productos',JSON.stringify(productos));
 
     return (
       <Container >
@@ -19,30 +29,7 @@ export  const RegistroProductos= () => {
       <Card className="ajusteDimencion" >
       <Card.Header className="TituloComponentes" ><span className="spanLetraTextoTitulo">Registrar Producto</span></Card.Header>
         <Card.Body>
-      <Form >
-      <Form.Group as={Row} className="mb-3">
-        <Form.Label column md={{ span: 3  }} ><span className="spanletraTextoNormal" >Producto</span></Form.Label>
-        <Col md={{ span: 9  }}>
-        <Form.Control  type="text" placeholder="Ingrese producto" />
-        </Col>
-      </Form.Group>
-
-      <Form.Group as={Row}  className="mb-3" >
-        <Form.Label column md={{ span: 3  }}><span className="spanletraTextoNormal">Precio</span> </Form.Label>
-        <Col md={{ span: 9  }}>
-        <Form.Control type="number" placeholder="Precio del producto" min={0} />
-        </Col>
-      </Form.Group>
-      <Form.Group as={Row}  className="mb-3">
-        <Form.Label column md={{ span: 3  }}><span className="spanletraTextoNormal">Lote</span> </Form.Label>
-        <Col md={{ span: 9  }}>
-        <Form.Control type="number" placeholder="Lote del producto" min={0} />
-        </Col>
-      </Form.Group>
-      <Button size="sm" variant="primary"  >
-        <span className="spanletraTextoNormal btnspan">Crear</span>
-      </Button>
-    </Form>
+          <FormularioRegistroProductos agregarProducto={agregarProducto} productos={productos} />
     </Card.Body>
     </Card>
 
@@ -51,7 +38,7 @@ export  const RegistroProductos= () => {
   <Card  className="CardsTablePrRegistrar">
       <Card.Header className="TituloComponentes"><span className="spanLetraTextoTitulo">Productos Registrados</span></Card.Header>
         <Card.Body>
-       <Tabla/>
+       <Tabla columnasTabla={columnasTabla} productos={productos} />
     </Card.Body>
     </Card>
     </Col>
