@@ -1,23 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {Col,Form, Row} from "react-bootstrap";
 //import * as Icon from 'react-bootstrap-icons';
 
-import Button from 'react-bootstrap/Button';
+import {BotonesOpcionales} from '../BotonesOpciones/BotonesOpcionales' 
 import './FormularioRegistroProductos.css'
 
 
 export const FormularioRegistroProductos = (props) => {
-      //console.log(props.productos)
+
       const [datosFormulario,setDatosFormulario]=useState({       
         id:null,
         Producto:'',
         Precio:'',
         Lote:''
       })
+      
 
       const eventoSubmit =(e)=>{
         e.preventDefault();
-        if(datosFormulario.Producto !=='' && datosFormulario.Precio !==null && datosFormulario.Lote !==null) {
+        
+        if(datosFormulario.Producto !=='' && datosFormulario.Precio !==null && datosFormulario.Lote !==null && props.opcion!=="Editar") {
         
             do {
               datosFormulario.id=Math.floor(Math.random()*100);
@@ -31,11 +33,33 @@ export const FormularioRegistroProductos = (props) => {
           Precio:'',
           Lote:''
         })
-        }else{
+        }else if(props.opcion==="Crear") {
            alert("Por Favor ingrese los datos...") 
         }
 
       }  
+      
+      const editarProducto=(producto)=>{
+        //console.log(producto);
+        var productos=JSON.parse(localStorage.getItem("productos"))
+        productos=productos.map(produc => produc.id !== producto.id ? produc : producto);
+       // console.log(productos);
+        localStorage.setItem('productos',JSON.stringify(productos));
+      }
+
+      useEffect(()=>{
+        if(props.productoEditar !==null ){
+          console.log(props.productoEditar)
+          setDatosFormulario(props.productoEditar)
+        }else{
+          setDatosFormulario({
+            id:null,
+            Producto:'',
+            Precio:'',
+            Lote:''
+          })
+        }
+      },[props.productoEditar])
 
       const eventoChange=(e)=>{
 
@@ -46,6 +70,7 @@ export const FormularioRegistroProductos = (props) => {
       })}
 
       return (
+        <>
       <Form onSubmit={eventoSubmit} >
       <Form.Group as={Row} className="mb-3">
         <Form.Label column md={{ span: 4  }}  ><span className="spanletraTextoNormal">Producto</span></Form.Label>
@@ -66,9 +91,8 @@ export const FormularioRegistroProductos = (props) => {
         <Form.Control type="number" name="Lote" onChange={eventoChange} value={datosFormulario.Lote} placeholder="Lote del producto" min={0} required={true} />
         </Col>
       </Form.Group>
-      <Button size="sm" variant="primary"  type="submit" >
-        <span className="spanletraTextoNormal btnspan">Crear</span>
-      </Button>
+      <BotonesOpcionales opcion={{"opcion":props.opcion,"producto":datosFormulario, "editarProducto":editarProducto}}/>
     </Form>
+     </>
     );
       }

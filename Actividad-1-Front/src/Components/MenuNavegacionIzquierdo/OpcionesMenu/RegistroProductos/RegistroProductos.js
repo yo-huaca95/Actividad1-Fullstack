@@ -8,11 +8,14 @@ import {PRODUCTOS} from "./Tabla/productos";
 import { COLUMNS as columnasTabla}  from "./Tabla/columns";
 import { FormularioRegistroProductos } from "./Formulario/FormularioRegistroProductos";
 
+
 localStorage.setItem('productos',JSON.stringify(PRODUCTOS));
 
 export  const RegistroProductos= () => {
 
     const [productos,setProducto]  =useState(JSON.parse(localStorage.getItem("productos")));
+    //const [productoEditar,setProductoEditar]= useState(null);
+    
 
     const agregarProducto= (producto)=>{
       setProducto([
@@ -21,7 +24,8 @@ export  const RegistroProductos= () => {
       ])
     }
     localStorage.setItem('productos',JSON.stringify(productos));
-
+    
+    //console.log(productoEditar);
     return (
       <Container >
       <Row >
@@ -29,7 +33,7 @@ export  const RegistroProductos= () => {
       <Card className="ajusteDimencion" >
       <Card.Header className="TituloComponentes" ><span className="spanLetraTextoTitulo">Registrar Producto</span></Card.Header>
         <Card.Body>
-          <FormularioRegistroProductos agregarProducto={agregarProducto} productos={productos} />
+          <FormularioRegistroProductos opcion="Crear" agregarProducto={agregarProducto}  productos={productos}  productoEditar={null} />
     </Card.Body>
     </Card>
 

@@ -1,20 +1,30 @@
-import React, { useEffect, useMemo} from "react";
+import React, { useEffect, useMemo, useState} from "react";
 import * as Icon from 'react-bootstrap-icons';
 import {useTable, usePagination} from "react-table"
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import './Tabla.css';
-import { Container } from "react-bootstrap";
+import { Container} from "react-bootstrap";
+import { Edicion } from "../ModalEdicion/Edicion";
+import {useActualizacion} from "../../../CustomHook/Actualizacion"
 
 //import { COLUMNS } from "./columns";
 //import {PRODUCTOS} from "./productos";
 
 
 export const Tabla= (props)=>{
+    const [outproductos]=useActualizacion()
 
     const data= useMemo(()=> props.productos,[props.productos])
     const columns = useMemo (()=>props.columnasTabla,[props.columnasTabla])
-  
+    const [dataEditar,setProductoEditar]=useState({
+      "ActivaModal":false, 
+      "DataEditar": { id:null,
+        Producto:'',
+        Precio:'',
+        Lote:''}
+    })
+     console.log(outproductos); 
     const tableInstance= useTable({
       columns,
       data
@@ -79,7 +89,7 @@ export const Tabla= (props)=>{
                   }
                 )
               }
-            <td> <Button size="sm"> <Icon.PencilFill  color="white" size={15} /></Button></td>
+            <td> <Button size="sm" onClick={()=>{setProductoEditar({"ActivaModal":true, "DataEditar": row.values, "CodeProcess":Math.floor(Math.random()*100)})}}> <Icon.PencilFill  color="white" size={15} /></Button></td>
             <td> <Button variant="danger" size="sm"><Icon.DashLg  color="white" size={15} ></Icon.DashLg></Button></td>
           </tr>
              )
@@ -111,6 +121,7 @@ export const Tabla= (props)=>{
          <Button onClick={()=>nextPage()} disabled={!canNextPage} className="botonPaginacion"> <span  >Siguiente</span></Button>
          <Button onClick={()=>gotoPage(pageCount - 1)} disabled={!canNextPage} className="botonPaginacion" >{'>>'}</Button> 
         </div>
+        <Edicion dataEditar={dataEditar} />
         </>
     );
 
