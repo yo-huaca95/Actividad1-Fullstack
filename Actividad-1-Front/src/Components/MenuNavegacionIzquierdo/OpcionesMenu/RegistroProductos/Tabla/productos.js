@@ -25,14 +25,14 @@ export const PRODUCTOS=[
     },
     {
         id:5,
-        Producto:'Jabon Protex',
-        Precio:5500,
+        Producto:'Jabon Nature',
+        Precio:5000,
         Lote:'001'
     },
     {
         id:6,
-        Producto:'Jabon Protex',
-        Precio:5500,
+        Producto:'Jabon Floral',
+        Precio:6000,
         Lote:'001'
     },
     {
