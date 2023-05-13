@@ -9,7 +9,7 @@ export const Editar= (props)=>{
 
     console.log(props.producto);
     return (
-        <Button size="sm" variant="warning" type="submit" className="botonEditar" onClick={()=>editarProductoCH(props.producto)} >
+        <Button size="sm" variant="warning" type="submit" className="botonEditar" onClick={()=>{editarProductoCH(props.producto)} } >
         <span className="spanletraTextoNormal btnspan">Editar</span>
         </Button>
     );

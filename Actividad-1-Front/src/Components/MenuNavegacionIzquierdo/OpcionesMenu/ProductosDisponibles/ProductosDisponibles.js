@@ -1,11 +1,14 @@
 import React from "react";
 import "./ProductosDisponibles.css";
-import {Table } from "react-bootstrap";
+//import {Table } from "react-bootstrap";
+import * as Icon from 'react-bootstrap-icons';
 
 
 export const ProductosDisponibles =()=>{
  return (
-<Table striped bordered hover>
+  <>
+
+{/* <Table striped bordered hover>
  <thead>
    <tr>
      <th>#</th>
@@ -33,7 +36,12 @@ export const ProductosDisponibles =()=>{
      <td>@twitter</td>
    </tr>
  </tbody>
-</Table>
+</Table> */
+
+}
+
+<Icon.Gear color="Black" size={60} ></Icon.Gear><span className="spanletraTextoNormal"> En proceso....</span>
+</>
 );
 
 }
