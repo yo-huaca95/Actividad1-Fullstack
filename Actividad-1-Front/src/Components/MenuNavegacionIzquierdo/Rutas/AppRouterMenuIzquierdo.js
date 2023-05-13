@@ -3,6 +3,7 @@ import {Ventas} from '../OpcionesMenu/Ventas/Ventas'
 import {RegistroProductos} from '../OpcionesMenu/RegistroProductos/RegistroProductos'
 import {Compras} from '../OpcionesMenu/Compras/Compras'
 import {ProductosDisponibles} from '../OpcionesMenu/ProductosDisponibles/ProductosDisponibles'
+
 import {Routes,Route } from "react-router-dom";
 
 export const AppRouterMenuIzquierdo = () =>{

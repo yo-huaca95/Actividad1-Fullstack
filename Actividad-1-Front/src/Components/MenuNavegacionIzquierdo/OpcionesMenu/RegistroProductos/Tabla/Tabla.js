@@ -6,15 +6,16 @@ import Button from 'react-bootstrap/Button';
 import './Tabla.css';
 import { Container} from "react-bootstrap";
 import { Edicion } from "../ModalEdicion/Edicion";
-import {useActualizacion} from "../../../CustomHook/Actualizacion"
+//import {useActualizacionStore} from "../../../CustomHook/useActualizacionStore";
+
+//import useActualizacionStore from "../../../CustomHook/"
 
 //import { COLUMNS } from "./columns";
 //import {PRODUCTOS} from "./productos";
 
 
 export const Tabla= (props)=>{
-    const [outproductos]=useActualizacion()
-
+    console.log("Tabla...");
     const data= useMemo(()=> props.productos,[props.productos])
     const columns = useMemo (()=>props.columnasTabla,[props.columnasTabla])
     const [dataEditar,setProductoEditar]=useState({
@@ -24,7 +25,7 @@ export const Tabla= (props)=>{
         Precio:'',
         Lote:''}
     })
-     console.log(outproductos); 
+     //console.log(outproductos); 
     const tableInstance= useTable({
       columns,
       data

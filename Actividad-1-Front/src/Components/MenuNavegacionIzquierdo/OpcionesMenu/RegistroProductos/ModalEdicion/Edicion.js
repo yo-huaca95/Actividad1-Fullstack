@@ -6,16 +6,19 @@ import {FormularioRegistroProductos} from '../Formulario/FormularioRegistroProdu
 import './Edicion.css'
 
 
+
 export const Edicion = (props)=>{
-    
+    console.log("Edicion...");
     const [show, setShow] = useState(false);
     const [dataEditar, setDataEditar] = useState(false);
     const [codigoProces,setCodeProceso]=useState(0);
-    console.log(props.dataEditar);
+
+
     useEffect(()=>{
       setShow(props.dataEditar.ActivaModal);
       setDataEditar(props.dataEditar.DataEditar);
       setCodeProceso(props.dataEditar.CodeProcess);
+ 
     },[props.dataEditar.ActivaModal,props.dataEditar.DataEditar,props.dataEditar.CodeProcess]
     )
     const handleClose = () => {
@@ -28,6 +31,7 @@ export const Edicion = (props)=>{
       })
       setCodeProceso(0)
     };
+    
     console.log(codigoProces);
 
     return (

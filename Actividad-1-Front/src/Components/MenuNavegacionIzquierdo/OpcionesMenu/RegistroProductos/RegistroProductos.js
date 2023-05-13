@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import {Card, Col, Container,Row} from "react-bootstrap";
 //import * as Icon from 'react-bootstrap-icons';
 
@@ -7,14 +7,16 @@ import {Tabla} from './Tabla/Tabla'
 import {PRODUCTOS} from "./Tabla/productos";
 import { COLUMNS as columnasTabla}  from "./Tabla/columns";
 import { FormularioRegistroProductos } from "./Formulario/FormularioRegistroProductos";
+import {useActualizacionStore} from '../../CustomHook/useActualizacionStore'
+
 
 
 localStorage.setItem('productos',JSON.stringify(PRODUCTOS));
 
 export  const RegistroProductos= () => {
-
-    const [productos,setProducto]  =useState(JSON.parse(localStorage.getItem("productos")));
-    //const [productoEditar,setProductoEditar]= useState(null);
+    console.log("Registro Productos..");
+    const {getLocalStorage} =useActualizacionStore()
+    const [productos,setProducto]  =useState(getLocalStorage);
     
 
     const agregarProducto= (producto)=>{
@@ -23,9 +25,7 @@ export  const RegistroProductos= () => {
         producto
       ])
     }
-    localStorage.setItem('productos',JSON.stringify(productos));
-    
-    //console.log(productoEditar);
+
     return (
       <Container >
       <Row >

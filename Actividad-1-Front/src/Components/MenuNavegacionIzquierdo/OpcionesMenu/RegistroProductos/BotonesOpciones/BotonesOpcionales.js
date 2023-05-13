@@ -6,7 +6,7 @@ import { Editar } from "./Editar";
 
 
 export const BotonesOpcionales= (props)=>{
-    console.log(props.opcion)
+    //console.log(props.opcion)
     const opciones=[
         {    "Opcion":"Crear",
              "Cuerpo":<Crear/>

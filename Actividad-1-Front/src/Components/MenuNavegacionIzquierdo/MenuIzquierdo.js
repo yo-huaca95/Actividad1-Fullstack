@@ -12,23 +12,23 @@ import { MarcoOpciones } from './OpcionesMenu/MarcoOpciones';
 
 export const MenuIzquierdo = () => {
 
-  var [opcionMenu,setOpcion]=useState(1);
+  var [opcionMenu,setOpcion]=useState(0);
     return (
         <Tab.Container id="list-group-tabs-example" >
         <Row >
           <Col md={{ span: 3 }} className='ColumnMenu'>
           <ListGroup>
             <ListGroup.Item action variant='light'>
-            <Link to="/RegistroProductos" onClick={()=> setOpcion(opcionMenu=1)} > <Icon.CaretRightFill color="#1989ff" size={14} ></Icon.CaretRightFill><span className="spanletraTextoNormal">Registro de productos</span></Link>
+            <Link to="/Menu/RegistroProductos" onClick={()=> setOpcion(opcionMenu=1)} > <Icon.CaretRightFill color="#1989ff" size={14} ></Icon.CaretRightFill><span className="spanletraTextoNormal">Registro de productos</span></Link>
             </ListGroup.Item>
             <ListGroup.Item action variant='light'>
-            <Link to="/Compras" onClick={()=>setOpcion(opcionMenu=2)} ><Icon.CaretRightFill color="#1989ff" size={14} ></Icon.CaretRightFill><span className="spanletraTextoNormal" >Compras </span> </Link>
+            <Link to="/Menu/Compras" onClick={()=>setOpcion(opcionMenu=2)} ><Icon.CaretRightFill color="#1989ff" size={14} ></Icon.CaretRightFill><span className="spanletraTextoNormal" >Compras </span> </Link>
             </ListGroup.Item>
             <ListGroup.Item action variant='light'>
-            <Link to="/Ventas" onClick={()=>setOpcion(opcionMenu=3)} ><Icon.CaretRightFill color="#1989ff" size={14} ></Icon.CaretRightFill><span className="spanletraTextoNormal" >Ventas</span></Link>
+            <Link to="/Menu/Ventas" onClick={()=>setOpcion(opcionMenu=3)} ><Icon.CaretRightFill color="#1989ff" size={14} ></Icon.CaretRightFill><span className="spanletraTextoNormal" >Ventas</span></Link>
             </ListGroup.Item>
             <ListGroup.Item action variant='light'>
-            <Link to="/Productos-Disponibles" onClick={()=>setOpcion(opcionMenu=4)} ><Icon.CaretRightFill color="#1989ff" size={14} ></Icon.CaretRightFill><span className="spanletraTextoNormal" >Productos disponibles </span></Link>
+            <Link to="/Menu/Productos-Disponibles" onClick={()=>setOpcion(opcionMenu=4)} ><Icon.CaretRightFill color="#1989ff" size={14} ></Icon.CaretRightFill><span className="spanletraTextoNormal" >Productos disponibles </span></Link>
             </ListGroup.Item>
           </ListGroup>
           </Col>

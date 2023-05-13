@@ -10,13 +10,17 @@ import {AppRouterMenuIzquierdo} from '../Rutas/AppRouterMenuIzquierdo';
 
 
 export const MarcoOpciones= (props)=>{
-    return (
+  console.log(props.opcion!==0);
+
+ return props.opcion===0? <></>: (
+        <>
         <div className="card text-center ">
           <TituloMarcoOpciones opcion={props.opcion}/>
         <div className="card-body">
            <AppRouterMenuIzquierdo/>       
         </div>
       </div>
+      </>
     );
 
 }
