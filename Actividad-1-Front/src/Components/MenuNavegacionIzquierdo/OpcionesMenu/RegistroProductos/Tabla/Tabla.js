@@ -91,7 +91,7 @@ export const Tabla= (props)=>{
                 )
               }
             <td> <Button size="sm" onClick={()=>{setProductoEditar({"ActivaModal":true, "DataEditar": row.values, "CodeProcess":Math.floor(Math.random()*100)})}}> <Icon.PencilFill  color="white" size={15} /></Button></td>
-            <td> <Button variant="danger" size="sm"><Icon.DashLg  color="white" size={15} ></Icon.DashLg></Button></td>
+            <td> <Button variant="danger" size="sm" onClick={()=>{props.eliminarProducto(row.values)}} ><Icon.DashLg  color="white" size={15} ></Icon.DashLg></Button></td>
           </tr>
              )
             })

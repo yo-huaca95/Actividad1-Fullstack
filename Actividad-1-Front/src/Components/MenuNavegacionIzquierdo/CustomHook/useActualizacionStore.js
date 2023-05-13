@@ -39,6 +39,11 @@ export const useActualizacionStore=()=>{
         setLocalStorage(productos);
     }
 
+    const eliminarProductoCH=(productos)=>{
+        console.log("useActualizacionStore.eliminarProducto...")
+        setLocalStorage(productos);
+    }
+
     
 
     return{
@@ -47,6 +52,7 @@ export const useActualizacionStore=()=>{
         setLocalStorage,
         getLocalStorage,
         editarProductoCH,
-        insertarProdcutoCH
+        insertarProdcutoCH,
+        eliminarProductoCH
     }
 }

@@ -15,7 +15,7 @@ localStorage.setItem('productos',JSON.stringify(PRODUCTOS));
 
 export  const RegistroProductos= () => {
     console.log("Registro Productos..");
-    const {getLocalStorage} =useActualizacionStore()
+    const {getLocalStorage,eliminarProductoCH} =useActualizacionStore()
     const [productos,setProducto]  =useState(getLocalStorage);
     
 
@@ -24,6 +24,13 @@ export  const RegistroProductos= () => {
         ...productos,
         producto
       ])
+    }
+
+    const eliminarProducto=(producto)=>{
+      
+      const newProductos=productos.filter((product)=>product.id!==producto.id)
+      setProducto(newProductos);
+      eliminarProductoCH(newProductos);
     }
 
     return (
@@ -42,7 +49,7 @@ export  const RegistroProductos= () => {
   <Card  className="CardsTablePrRegistrar">
       <Card.Header className="TituloComponentes"><span className="spanLetraTextoTitulo">Productos Registrados</span></Card.Header>
         <Card.Body>
-       <Tabla columnasTabla={columnasTabla} productos={productos} />
+       <Tabla columnasTabla={columnasTabla} productos={productos} eliminarProducto={eliminarProducto} />
     </Card.Body>
     </Card>
     </Col>
