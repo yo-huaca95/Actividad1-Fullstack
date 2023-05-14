@@ -1,7 +1,7 @@
 import React from "react";
 //import * as Icon from 'react-bootstrap-icons';
 
-import {TituloMarcoOpciones} from './marcoOpciones/TituloMarcoOpciones';
+import {TituloMarcoOpciones} from './TituloMarcoOpciones/TituloMarcoOpciones';
 import './MarcoOpciones.css';
 import {AppRouterMenuIzquierdo} from '../../../Rutas/RutasMenu/AppRouterMenuIzquierdo';
 
