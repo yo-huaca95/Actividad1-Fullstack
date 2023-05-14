@@ -20,9 +20,11 @@ export  const RegistroProductos= () => {
     const [productos,setProducto]  =useState(getLocalStorage);
     const codeCambio=useGetCodeCambio()
 
-    useEffect(()=>{
+     useEffect(()=>{
+      //console.log("dato Context code Cambio"+ codeCambio);
       setProducto(getLocalStorage);
-    },[codeCambio,getLocalStorage])
+       
+    },[codeCambio])
     //console.log("dato Context code Cambio"+ codeCambio);
 
     const agregarProducto= (producto)=>{
