@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import './Home.css';
 import * as Icon from 'react-bootstrap-icons';
 
+
 export const Home= ()=>{
+  
     return (
         <Container fluid className="Homes">
       

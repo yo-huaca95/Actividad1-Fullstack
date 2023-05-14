@@ -1,6 +1,6 @@
 import React from "react";
-import { Home } from "../Home/Home";
-import {MarcoOpciones} from "../Menu/MenuPrincipal"
+import { Home } from "../../Components/Home/Home";
+import {MarcoOpciones} from "../../Components/Menu/MenuPrincipal"
 //import { RegistroProductos } from "../MenuNavegacionIzquierdo/OpcionesMenu/RegistroProductos/RegistroProductos";
 //import { Compras } from "../MenuNavegacionIzquierdo/OpcionesMenu/Compras/Compras";
 

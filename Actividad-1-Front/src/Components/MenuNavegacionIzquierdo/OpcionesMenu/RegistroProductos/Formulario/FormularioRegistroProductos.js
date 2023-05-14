@@ -4,9 +4,11 @@ import {Col,Form, Row} from "react-bootstrap";
 
 import {BotonesOpcionales} from '../BotonesOpciones/BotonesOpcionales' 
 import './FormularioRegistroProductos.css'
-import {useActualizacionStore} from "../../../CustomHook/useActualizacionStore";
+import {useActualizacionStore} from "../../../../../CustomHook/CustomHookLocalStore/useActualizacionStore";
 
 export const FormularioRegistroProductos = (props) => {
+      console.log("FormularioRegistroProductos...");
+      console.log(props);
       const {insertarProdcutoCH}=useActualizacionStore()
 
       const [datosFormulario,setDatosFormulario]=useState({       
@@ -84,7 +86,7 @@ export const FormularioRegistroProductos = (props) => {
         <Form.Control type="number" name="Lote" onChange={eventoChange} value={datosFormulario.Lote} placeholder="Lote del producto" min={0} required={true} />
         </Col>
       </Form.Group>
-      <BotonesOpcionales opcion={{"opcion":props.opcion,"producto":datosFormulario}}/>
+      <BotonesOpcionales opcion={{"opcion":props.opcion,"producto":datosFormulario, "closeModal": props.closeModal}}/>
     </Form>
      </>
     );

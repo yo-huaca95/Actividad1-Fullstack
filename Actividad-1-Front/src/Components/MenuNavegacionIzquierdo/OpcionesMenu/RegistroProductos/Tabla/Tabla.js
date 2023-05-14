@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import './Tabla.css';
 import { Container} from "react-bootstrap";
 import { Edicion } from "../ModalEdicion/Edicion";
+//import { updateListaProductos } from "../../../../../Context/updateListaProductos";
 //import {useActualizacionStore} from "../../../CustomHook/useActualizacionStore";
 
 //import useActualizacionStore from "../../../CustomHook/"
@@ -16,6 +17,14 @@ import { Edicion } from "../ModalEdicion/Edicion";
 
 export const Tabla= (props)=>{
     console.log("Tabla...");
+    //const contex=useContext(updateListaProductos);
+    
+    // useEffect(()=>{
+    //   console.log("context a cambiado.. "+contex);
+    // },[contex])
+    
+
+
     const data= useMemo(()=> props.productos,[props.productos])
     const columns = useMemo (()=>props.columnasTabla,[props.columnasTabla])
     const [dataEditar,setProductoEditar]=useState({

@@ -12,7 +12,7 @@ export const BotonesOpcionales= (props)=>{
              "Cuerpo":<Crear/>
         },
         {   "Opcion":"Editar",
-            "Cuerpo":<Editar producto={props.opcion.producto} editarProducto={props.opcion.editarProducto}/>
+            "Cuerpo":<Editar producto={props.opcion.producto} editarProducto={props.opcion.editarProducto} closeModal={props.opcion.closeModal}/>
         }
     ]
     

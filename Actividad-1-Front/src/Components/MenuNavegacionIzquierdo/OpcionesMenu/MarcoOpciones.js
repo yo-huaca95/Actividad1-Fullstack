@@ -3,10 +3,7 @@ import React from "react";
 
 import {TituloMarcoOpciones} from './marcoOpciones/TituloMarcoOpciones';
 import './MarcoOpciones.css';
-import {AppRouterMenuIzquierdo} from '../Rutas/AppRouterMenuIzquierdo';
-
-
-
+import {AppRouterMenuIzquierdo} from '../../../Rutas/RutasMenu/AppRouterMenuIzquierdo';
 
 
 export const MarcoOpciones= (props)=>{
