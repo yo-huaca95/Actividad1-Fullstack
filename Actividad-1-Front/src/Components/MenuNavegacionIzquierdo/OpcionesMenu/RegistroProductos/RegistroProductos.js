@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, {useEffect, useState } from "react";
 import {Card, Col, Container,Row} from "react-bootstrap";
 //import * as Icon from 'react-bootstrap-icons';
 
@@ -7,8 +7,9 @@ import {Tabla} from './Tabla/Tabla'
 import {PRODUCTOS} from "./Tabla/productos";
 import { COLUMNS as columnasTabla}  from "./Tabla/columns";
 import { FormularioRegistroProductos } from "./Formulario/FormularioRegistroProductos";
-import {useActualizacionStore} from '../../CustomHook/useActualizacionStore'
-
+import {useActualizacionStore} from '../../../../CustomHook/CustomHookLocalStore/useActualizacionStore'
+import { useGetCodeCambio } from "../../../../Context/UpdateListaProvider";
+//import { UpdateListaProvider } from "../../../../Context/UpdateListaProvider";
 
 
 localStorage.setItem('productos',JSON.stringify(PRODUCTOS));
@@ -17,7 +18,12 @@ export  const RegistroProductos= () => {
     console.log("Registro Productos..");
     const {getLocalStorage,eliminarProductoCH} =useActualizacionStore()
     const [productos,setProducto]  =useState(getLocalStorage);
-    
+    const codeCambio=useGetCodeCambio()
+
+    useEffect(()=>{
+      setProducto(getLocalStorage);
+    },[codeCambio,getLocalStorage])
+    //console.log("dato Context code Cambio"+ codeCambio);
 
     const agregarProducto= (producto)=>{
       setProducto([
@@ -34,6 +40,7 @@ export  const RegistroProductos= () => {
     }
 
     return (
+   
       <Container >
       <Row >
       <Col md={{ span: 5 }}>
@@ -55,5 +62,6 @@ export  const RegistroProductos= () => {
     </Col>
     </Row>
       </Container>
+
     );
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {  useEffect } from "react";
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import {Card, Col, Container,Row} from "react-bootstrap";
@@ -9,11 +9,16 @@ import './Edicion.css'
 
 export const Edicion = (props)=>{
     console.log("Edicion...");
+   
+
+    //console.log(user);
     const [show, setShow] = useState(false);
     const [dataEditar, setDataEditar] = useState(false);
     const [codigoProces,setCodeProceso]=useState(0);
 
 
+    //console.log(props);
+    
     useEffect(()=>{
       setShow(props.dataEditar.ActivaModal);
       setDataEditar(props.dataEditar.DataEditar);
@@ -46,7 +51,7 @@ export const Edicion = (props)=>{
         <Card className="ajusteDimencion" >
         <Card.Header className="TituloComponentes" ><span className="spanLetraTextoTitulo">Editar Producto</span></Card.Header>
         <Card.Body>
-        <FormularioRegistroProductos opcion="Editar" agregarProducto="" productos="" productoEditar={dataEditar}  />
+        <FormularioRegistroProductos opcion="Editar" closeModal={handleClose} agregarProducto="" productos="" productoEditar={dataEditar}  />
         </Card.Body>
         </Card>
         </Modal.Body>
